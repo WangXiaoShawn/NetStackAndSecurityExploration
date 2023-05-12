@@ -1,4 +1,4 @@
-# :mortar_board: Network Protocols Labs
+# :mortar_board: Seeds Labs
 
 Welcome to my series of experiments, which are based on the renowned **Seeds Lab 2.0** project, masterminded by *Professor Du wenliang* of Syracuse University :school:.
 
