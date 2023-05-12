@@ -1,0 +1,41 @@
+router id 10.0.0.33;
+ipv4 table t_direct;
+protocol device {
+}
+protocol kernel {
+    ipv4 {
+        import all;
+        export all;
+    };
+    learn;
+}
+protocol direct local_nets {
+    ipv4 {
+        table t_direct;
+        import all;
+    };
+
+    interface "net0";
+
+}
+ipv4 table t_ospf;
+protocol ospf ospf1 {
+    ipv4 {
+        table t_ospf;
+        import all;
+        export all;
+    };
+    area 0 {
+        interface "dummy0" { stub; };
+        interface "ix105" { stub; };
+        interface "net0" { hello 1; dead count 2; };
+
+    };
+}
+protocol pipe {
+    table t_ospf;
+    peer table master4;
+    import none;
+    export all;
+}
+
